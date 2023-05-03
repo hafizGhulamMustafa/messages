@@ -1,9 +1,11 @@
 import { Body, Controller , Get , Param, Post} from '@nestjs/common';
 import { createMessagesDto } from './dtos/create-messages.dto';
+import { messagesService } from './messages.service';
 
 
 @Controller('messages')
 export class MessagesController {
+    messageService: messagesService;
     @Get()
     listMessages(){
         return 'HELLO MESSAGE'
