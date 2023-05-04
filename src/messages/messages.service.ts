@@ -1,6 +1,6 @@
 import { MessagesRepository } from "./messages.repository";
 
-export class messagesService{
+export class MessagesService{
 messagesRepo : MessagesRepository
     constructor(){
         this.messagesRepo = new MessagesRepository()
@@ -14,7 +14,7 @@ messagesRepo : MessagesRepository
         return this.messagesRepo.findAll()
     }
 
-    create(content:string){
-        return this.messagesRepo.create(content);
+    create(name:string, age:number){
+        return this.messagesRepo.create(name, age);
     }
 }

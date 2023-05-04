@@ -14,14 +14,16 @@ export class MessagesRepository{
         return messages;
 
     }
-    async create(content:string){
+    async create(name:string, age:number){
+        
         const contents = await readFile('messages.json', 'utf-8');
-        const messages = JSON.parse(content)
+        const messages = JSON.parse(contents)
 
         const id = Math.floor(Math.random()*999)
-        messages[id] ={ id, content}
+        messages[id] ={ id, name, age}
 
         await writeFile('messages.json', JSON.stringify(messages))
+        return messages
     }
 
 }
