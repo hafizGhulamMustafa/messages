@@ -1,6 +1,7 @@
-import { Body, Controller , Get , Param, Post} from '@nestjs/common';
+import { Body, Controller , Get , Param, Post, NotFoundException} from '@nestjs/common';
 import { createMessagesDto } from './dtos/create-messages.dto';
 import { MessagesService } from './messages.service';
+
 
 
 @Controller('messages')
@@ -27,9 +28,11 @@ export class MessagesController {
         if(data){
             return data
         }else{
-            return {
-                status: false,
-                message: "no messages found"
-        }}
+            throw new NotFoundException('message not found')
+        //     return {
+        //         status: false,
+        //         message: "no messages found"
+        // }
+    }
     }
 }

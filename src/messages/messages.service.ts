@@ -8,7 +8,7 @@ messagesRepo : MessagesRepository
 
     findOne(id : string){
         return this.messagesRepo.findOne(id)
-    }
+    } 
 
     findall(){
         return this.messagesRepo.findAll()
